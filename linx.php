@@ -43,7 +43,7 @@
     <form action="linx.php" method="post">
         <input type="text" name="url" placeholder="URL">
         <input type="text" name="description" placeholder="Beskrivning">
-        <input type="submit" name="btn" value="Spara">
+        <input type="submit" name="btn" value="Spara" title="Lägger till länk i databasen">
     </form>
     <div class="container">
     <h1>Länkar</h1>
@@ -56,11 +56,11 @@
     }else{ // If there are rows in the result
         while($row=$result->fetch_assoc()){ // Loop through the result until there are no more rows and get the row as an associative array (dictionaries in Python)
             echo 
-            "<a href='".$row['url']."'>".$row['description']."</a> 
+            "<div class='line'><a href='".$row['url']."' title='Gå till ".$row['url']."'>".$row['description']."</a> 
             <i>inlagd ".$row['date_stored']."</i>
             &nbsp;&nbsp;&nbsp;
-            <a href='linx.php?del=".$row['id']."'><i class='gg-trash'></i></a>
-            <br>"; // Print the URL, description, date_stored and a trash can icon to delete the row with the id as a GET parameter in the URL
+            <a href='linx.php?del=".$row['id']."'><i class='gg-trash' title='Ta bort ".$row['description']."'></i></a>
+            </div>"; // Print the URL, description, date_stored and a trash can icon to delete the row with the id as a GET parameter in the URL
         }
 }
 ?>

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('css_icons.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');  /* Import Poppins font from Google */
+@import url('css_icons.css'); /* Import css_icons.css file with my custom trashcan */
 *{
     margin: 0;
     padding: 0;
@@ -47,7 +47,43 @@ form input[type="submit"]:hover{
 }
 .container h2{
     margin: 20px 0;
+    font-weight: 800;
 }
 .container p{
     margin: 10px 0;
+    font-weight: 100;
+}
+.container i{
+    font-size: .7rem;
+}
+.line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.line:nth-child(odd){
+    background-color: #f5f5f5;
+}
+.line a:first-child{
+    text-decoration: none;
+    color: #333;
+    flex-grow: 3;
+}
+.line a:first-child:hover{
+    text-decoration: underline;
+}
+.line a:last-child{
+    text-decoration: none;
+    color: #881010;
+    padding: 5px 10px;
+}
+.line a:last-child:hover{
+    color:#ffffff;
+    background: #881010;
+    border-radius: 5px;
 }

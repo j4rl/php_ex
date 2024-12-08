@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <?php
@@ -12,11 +13,13 @@
         }
 
         if(isset($_POST['btn'])){
-            $story = $_POST['hela_storyn'].$_POST['story'];
+            $story = $_POST['hela_storyn']." ".$_POST['story'];
         }
     ?>
-    <h1>Story</h1>
-    <p><?=$story?></p>
+    <div class="container">
+        <h1>Storyn:</h1>
+        <p><?=$story?></p>
+    </div>
     <form action="index.php" method="POST">
         <input type="text" name="story" placeholder="Skriv nåt...">
         <input type="hidden" name="hela_storyn" value="<?=$story?>">
