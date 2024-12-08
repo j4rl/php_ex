@@ -9,20 +9,19 @@ Here are som differences between PHP and Python:
 - PHP is embedded in HTML, while Python is not.
 
 Here are som syntax differences between PHP and Python:
-- PHP uses $ for variables, while Python does not.
-- PHP uses ; for statement termination, while Python uses newline.
-- PHP uses {} for code blocks, while Python uses indentation.
-- PHP uses // for comments, while Python uses #.
-- PHP uses . for string concatenation, while Python uses +.
-- PHP uses == for equality, while Python uses =.
-- PHP uses -> for object properties and methods, while Python uses . (dot).
-- PHP uses :: for static properties and methods, while Python uses . (dot).
-- PHP uses $this for object properties and methods, while Python uses self.
-- PHP uses public, private, protected for visibility, while Python uses public, private, protected.
-- PHP uses new for object creation, while Python uses class name.
-- PHP uses require, include for file inclusion, while Python uses import.
-- PHP uses echo for output, while Python uses print.
-- PHP uses function for function definition, while Python uses def.
+- PHP uses `$` for variables, while Python does not.
+- PHP uses `;` for statement termination, while Python uses newline.
+- PHP uses `{}` for code blocks, while Python uses indentation.
+- PHP uses `//` for comments, while Python uses `#`.
+- PHP uses `.` for string concatenation, while Python uses `+`.
+- PHP uses `==` for equality, while Python uses `=`.
+- PHP uses `->` for object properties and methods, while Python uses `.` (dot).
+- PHP uses `::` for static properties and methods, while Python uses `.` (dot).
+- PHP uses `$this` for object properties and methods, while Python uses `self`.
+- PHP uses `new` for object creation, while Python uses class name.
+- PHP uses `require`, include for file inclusion, while Python uses `import`.
+- PHP uses `echo` or `print` for output, while Python uses `print`.
+- PHP uses `function` for function definition, while Python uses `def`.
 
 
 Here are some examples of how to use variables in PHP code.
