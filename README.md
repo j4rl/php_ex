@@ -4,6 +4,7 @@ PHP examples
 - [This is an example of hidden input in forms](index.php)
 
 Here are some examples of how to use variables in PHP code.
+
 ´´´php	
 <?php
     $var1 = "Hello";
@@ -11,7 +12,9 @@ Here are some examples of how to use variables in PHP code.
     echo $var1 . " " . $var2;
 ?>
 ´´´
+
 Here is some examples of how to use arithmetic operators in PHP code.
+
 ´´´php
 <?php
     $var1 = 10;
@@ -23,7 +26,9 @@ Here is some examples of how to use arithmetic operators in PHP code.
     echo $var1 % $var2;
 ?>
 ´´´
+
 Here is some examples of how to use comparison operators in PHP code.
+
 ´´´php
 <?php
     $var1 = 10;
@@ -36,7 +41,9 @@ Here is some examples of how to use comparison operators in PHP code.
     echo $var1 <= $var2;
 ?>
 ´´´
+
 Here is some examples of how to use logical operators in PHP code.
+
 ´´´php
 <?php
     $var1 = 10;
@@ -46,7 +53,9 @@ Here is some examples of how to use logical operators in PHP code.
     echo !($var1 == 10 && $var2 == 20);
 ?>
 ´´´
+
 Here is some examples of how to use if statements in PHP code.
+
 ´´´php
 <?php
     $var1 = 10;
@@ -59,7 +68,9 @@ Here is some examples of how to use if statements in PHP code.
     }
 ?>
 ´´´
+
 Here is some examples of how to use switch statements in PHP code.
+
 ´´´php
 <?php
     $var1 = 10;
@@ -75,7 +86,9 @@ Here is some examples of how to use switch statements in PHP code.
     }
 ?>
 ´´´
+
 Here is some examples of how to use while loops in PHP code.
+
 ´´´php
 <?php
     $var1 = 0;
@@ -91,7 +104,9 @@ Here is some examples of how to use while loops in PHP code.
     }while($var1 < 10);
 ?>
 ´´´
+
 Here is some examples of how to use for loops in PHP code.
+
 ´´´php
 <?php
     for($i = 0; $i < 10; $i++){
@@ -99,7 +114,9 @@ Here is some examples of how to use for loops in PHP code.
     }
 ?>
 ´´´
+
 Here is some examples of how to use foreach loops in PHP code.
+
 ´´´php
 <?php
     $arr = array(1, 2, 3, 4, 5);
@@ -108,7 +125,9 @@ Here is some examples of how to use foreach loops in PHP code.
     }
 ?>
 ´´´
+
 Here is some examples of how to use functions in PHP code.
+
 ´´´php
 <?php
     function add($var1, $var2){
@@ -117,7 +136,9 @@ Here is some examples of how to use functions in PHP code.
     echo add(10, 20);
 ?>
 ´´´
+
 Here is some examples of how to use arrays in PHP code.
+
 ´´´php
 <?php
     $arr = array(1, 2, 3, 4, 5);
@@ -128,7 +149,9 @@ Here is some examples of how to use arrays in PHP code.
     echo $arr[4];
 ?>
 ´´´
+
 Here is some examples of how to use associative arrays in PHP code.
+
 ´´´php
 <?php
     $arr = array("key1" => 1, "key2" => 2, "key3" => 3);
@@ -137,7 +160,9 @@ Here is some examples of how to use associative arrays in PHP code.
     echo $arr["key3"];
 ?>
 ´´´
+
 Here is some examples of how to use multidimensional arrays in PHP code.
+
 ´´´php
 <?php
     $arr = array(array(1, 2, 3), array(4, 5, 6), array(7, 8, 9));
@@ -152,7 +177,9 @@ Here is some examples of how to use multidimensional arrays in PHP code.
     echo $arr[2][2];
 ?>
 ´´´
+
 Here is some examples of how to use superglobals in PHP code.
+
 ´´´php
 <?php
     echo $_SERVER['PHP_SELF'];
@@ -161,15 +188,19 @@ Here is some examples of how to use superglobals in PHP code.
     echo $_SERVER['HTTP_USER_AGENT'];
     echo $_SERVER['SCRIPT_NAME'];
 ?>
-´´´ 
+´´´
+
 Here is some examples of how to use cookies in PHP code.
+
 ´´´php
 <?php
     setcookie("name", "value", time() + 3600, "/");
     echo $_COOKIE["name"];
 ?>
 ´´´
+
 Here is some examples of how to use sessions in PHP code.
+
 ´´´php
 <?php
     session_start();
@@ -177,7 +208,9 @@ Here is some examples of how to use sessions in PHP code.
     echo $_SESSION["name"];
 ?>
 ´´´
+
 Here is some examples of how to use file handling in PHP code.
+
 ´´´php
 <?php
     $file = fopen("file.txt", "w");
@@ -188,7 +221,9 @@ Here is some examples of how to use file handling in PHP code.
     fclose($file);
 ?>
 ´´´
+
 Here is some examples of how to use error handling in PHP code.
+
 ´´´php
 <?php
     function customError($errno, $errstr){
@@ -198,7 +233,9 @@ Here is some examples of how to use error handling in PHP code.
     echo $test;
 ?>
 ´´´
+
 Here is some examples of how to use exception handling in PHP code.
+
 ´´´php
 <?php
     function customException($exception){
@@ -208,7 +245,9 @@ Here is some examples of how to use exception handling in PHP code.
     throw new Exception("An exception has occurred");
 ?>
 ´´´
+
 Here is some examples of how to use filters in PHP code.
+
 ´´´php
 <?php
     $var = 10;
@@ -219,14 +258,18 @@ Here is some examples of how to use filters in PHP code.
     }
 ?>
 ´´´
+
 Here is some examples of how to use JSON in PHP code.
+
 ´´´php
 <?php
     $arr = array("key1" => 1, "key2" => 2, "key3" => 3);
     echo json_encode($arr);
 ?>
 ´´´
+
 Here is some examples of how to use OOP in PHP code.
+
 ´´´php
 <?php
     class MyClass{
@@ -241,7 +284,9 @@ Here is some examples of how to use OOP in PHP code.
     $obj->myFunction();
 ?>
 ´´´
+
 Here is some examples of how to use namespaces in PHP code.
+
 ´´´php
 <?php
     namespace MyNamespace;
@@ -257,7 +302,9 @@ Here is some examples of how to use namespaces in PHP code.
     $obj->myFunction();
 ?>
 ´´´
+
 Here is some examples of how to use traits in PHP code.
+
 ´´´php
 <?php
     trait MyTrait{
@@ -273,7 +320,9 @@ Here is some examples of how to use traits in PHP code.
     $obj->myFunction();
 ?>
 ´´´
+
 Here is some examples of how to use interfaces in PHP code.
+
 ´´´php
 <?php
     interface MyInterface{
@@ -289,7 +338,9 @@ Here is some examples of how to use interfaces in PHP code.
     $obj->myFunction();
 ?>
 ´´´
+
 Here is some examples of how to use abstract classes in PHP code.
+
 ´´´php
 <?php
     abstract class MyAbstractClass{
