@@ -5,7 +5,7 @@ PHP examples
 
 Here are some examples of how to use variables in PHP code.
 
-´´´php	
+```php	
 <?php
     $var1 = "Hello";
     $var2 = "World";
