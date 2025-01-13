@@ -296,4 +296,13 @@ Same as Java and JavaScript, PHP has a try-catch block for exception handling.
     }
 
 ```
+## Examples of preventing SQL injection in PHP code
+Some examples of how to prevent SQL injection in PHP code with builtin functions in PHP
 
+```php
+    $var1 = stripslashes($_POST['someInput']); //remove backslashes
+    $var2 = htmlspecialchars($_POST['someInput']); //convert special characters to HTML entities
+    $var3 = mysqli_real_escape_string($conn, $_POST['someInput']); //escape special characters
+    $var4 = filter_var($_POST['someInput'], FILTER_SANITIZE_STRING); //sanitize string
+    $var5 = filter_var($_POST['someInput'], FILTER_SANITIZE_NUMBER_INT); //sanitize integer
+```
