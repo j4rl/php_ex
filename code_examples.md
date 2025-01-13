@@ -305,5 +305,5 @@ Some examples of how to prevent SQL injection in PHP code with builtin functions
     $var3 = mysqli_real_escape_string($conn, $_POST['someInput']); //escape special characters
     $var4 = filter_var($_POST['someInput'], FILTER_SANITIZE_STRING); //sanitize string
     $var5 = filter_var($_POST['someInput'], FILTER_SANITIZE_NUMBER_INT); //sanitize integer
-    $var6 = trim($_POST['someInput']);  /remove spaces in the beginning and end of string
+    $var6 = trim($_POST['someInput']);  //remove spaces in the beginning and end of string
 ```
