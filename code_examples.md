@@ -306,3 +306,18 @@ Some examples of how to prevent SQL injection in PHP code with builtin functions
     $var4 = filter_var($_POST['someInput'], FILTER_SANITIZE_STRING); //sanitize string
     $var5 = filter_var($_POST['someInput'], FILTER_SANITIZE_NUMBER_INT); //sanitize integer
 ```
+
+Exempel på funktion som kan användas för att förhindra enklare SQL injection i PHP-kod
+
+```php
+    function sanitize($input){
+        $input = stripslashes($input); //remove backslashes
+        $input = htmlspecialchars($input); //convert special characters to HTML entities
+        $input = filter_var($input, FILTER_SANITIZE_STRING); //sanitize string
+        return $input;
+    }
+
+    $var1 = sanitize($_POST['someInput']);  //this is how you utilize the function
+```
+
+
