@@ -1,7 +1,9 @@
 <?php
-    if(isset($_POST['btn'])){
-        $txt = $_POST['txt'];
-    }
+if(isset($_GET['toggle'])){
+    $varToggle = true;
+}else{  
+    $varToggle = false;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +13,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><?=$txt?></h1>
+<?php if(isset($varToggle) && $varToggle){ ?>
+    <h1>Fått 🐐-variabel</h1>
+    <p>Variabeln är: <?=$_GET['toggle']?></p>
+<?php }else{ ?>
+    <h1>Ingen data</h1>
+<?php } ?>
+    <a href="test2.php?toggle=true">Tryck här</a>
 </body>
 </html>

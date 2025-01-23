@@ -97,6 +97,19 @@ Here is some examples of how to use switch statements in PHP code.
 
 ```
 
+Here is an example of how to use match statements in PHP code.
+
+```php
+
+    $var1 = 10;
+    match($var1){
+        10 => echo "var1 is 10",
+        20 => echo "var1 is 20",
+        default => echo "var1 is not 10 or 20"
+    }
+
+```
+
 Here is some examples of how to use while loops in PHP code.
 
 ```php
@@ -320,5 +333,7 @@ Exempel på funktion som kan användas för att förhindra enklare SQL injection
 
     $var1 = sanitize($_POST['someInput']);  //this is how you utilize the function
 ```
+
+
 
 
