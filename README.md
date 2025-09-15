@@ -1,6 +1,5 @@
 # PHP examples
-- [Here are som code examples in PHP](code_examples.md)
-**This is a big file of code examples**
+- [Here are som code examples in PHP](code_examples.md) **(This is a really big file of code examples)**
 - [This is an example of hidden input in forms](index.php)
 - [Example of a simple form to save links to a database](linx.php)
 
