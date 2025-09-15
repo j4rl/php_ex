@@ -8,9 +8,9 @@
     echo $var1 . " " . $var2;
 
 ```
-- **String concatenation** is done using the dot (.) operator.
+- **String concatenation** is done using the dot (`.`) operator.
 - **Variable interpolation** can be done using double quotes.
-- **Comments** can be single line (// or #) or multi-line (/* */).
+- **Comments** can be single line (`//` or `#`) or multi-line (`/* */`).
 
 ## How to use arithmetic operators in PHP code.
 
@@ -25,8 +25,8 @@
     echo $var1 % $var2; //modulo operator (remainder of division)
 
 ```
-- **Increment** operator (++) and **decrement** operator (--) can be used to increase or decrease a variable by 1.
-- **Compound assignment** operators (+=, -=, *=, /=, %=) can be used to perform an operation and assign the result to the same variable.
+- **Increment** operator (`++`) and **decrement** operator (`--`) can be used to increase or decrease a variable by 1.
+- **Compound assignment** operators (`+=`, `-=`, `*=`, `/=`, `%=`) can be used to perform an operation and assign the result to the same variable.
 
 ## Comparison operators in PHP code.
 
@@ -42,12 +42,12 @@
     echo $var1 <= $var2; //less than or equal
 
 ```
-- **Identical** operator (===) checks if two variables are equal and of the same type.
-- **Not identical** operator (!==) checks if two variables are not equal or not of the same type.
-- **Spaceship** operator (<=>) returns -1, 0, or 1 when $var1 is respectively less than, equal to, or greater than $var2.
-- **Null coalescing** operator (??) returns its first operand if it exists and is not null; otherwise, it returns its second operand.
-- **Ternary** operator (condition ? expr1 : expr2) is a shorthand for if-else statement.
-- **Elvis** operator (?:) is a shorthand for ternary operator when the middle expression is the same as the first.
+- **Identical** operator (`===`) checks if two variables are equal and of the same type.
+- **Not identical** operator (`!==`) checks if two variables are not equal or not of the same type.
+- **Spaceship** operator (`<=>`) returns -1, 0, or 1 when $var1 is respectively less than, equal to, or greater than $var2.
+- **Null coalescing** operator (`??`) returns its first operand if it exists and is not null; otherwise, it returns its second operand.
+- **Ternary** operator (`condition ? expr1 : expr2`) is a shorthand for if-else statement.
+- **Elvis** operator (`?:`) is a shorthand for ternary operator when the middle expression is the same as the first.
 
 
 ## How to use logical operators in PHP code.
@@ -59,6 +59,7 @@
     echo $var1 == 10 && $var2 == 20; //and
     echo $var1 == 10 || $var2 == 20; //or
     echo !($var1 == 10 && $var2 == 20); //not (negation) 
+    echo $var1 == 10 xor $var2 == 20; //xor (exclusive or)
 
 ```
 - **and** operator has lower precedence than && operator. 
@@ -97,10 +98,10 @@
 
 ```
 - if statements can be nested (if inside if).
-- else if can be written as elseif (one word).
-- Curly braces ({}) can be omitted if there is only one statement in the block, but it is recommended to always use them for better readability and to avoid errors.
-- Ternary operator can be used as a shorthand for if-else statement.
-    - Example: $result = ($var1 == 10) ? "var1 is 10" : "var1 is not 10";
+- else if can be written as `elseif` (one word).
+- Curly braces (`{}`) can be omitted if there is only one statement in the block, but it is recommended to always use them for better readability and to avoid errors.
+- Ternary operator can be used as a shorthand for `if-else` statement.
+    - Example: `$result = ($var1 == 10) ? "var1 is 10" : "var1 is not 10";`
     - Above is equivalent to:
     ```php
         if($var1 == 10){
@@ -110,7 +111,7 @@
         }
     ```
 - Null coalescing operator can be used to check if a variable is set and not null.
-    - Example: $value = $var1 ?? "default value";
+    - Example: `$value = $var1 ?? "default value";`
     - Above is equivalent to:
     ```php
         if(isset($var1)){
@@ -200,7 +201,7 @@
 ```
 - Break statement can be used to exit the loop.
 - Continue statement can be used to skip the current iteration and move to the next iteration.
-- Infinite loops can be created by using while(true) or for(;;), but they should be avoided unless necessary.
+- Infinite loops can be created by using `while(true)` or `for(;;)`, but they should be avoided unless necessary.
 - Be careful with infinite loops, as they can crash the server or browser if not handled properly.
 - Always make sure there is a way to exit the loop, either by using break or by having a condition that will eventually be false.
 
@@ -275,7 +276,7 @@
         echo add(10); //call function with one argument, second argument will be 0
         echo add(10, 20); //call function with two arguments
     ```
-- Functions can have variable number of arguments using the ... operator (splat operator).
+- Functions can have variable number of arguments using the `...` operator (splat operator).
     ```php
         function add(...$vars){ //function with variable number of arguments
             $sum = 0;
@@ -320,7 +321,7 @@
 
 ```
 - Arrays in PHP are zero-indexed, meaning the first element is at index 0.
-- Arrays can be created using the array() function or the shorthand [] syntax (PHP 5.4+).
+- Arrays can be created using the `array()` function or the shorthand `[]` syntax (PHP 5.4+).
     ```php
         $arr1 = array(1, 2, 3); //using array() function
         $arr2 = [1, 2, 3]; //using shorthand [] syntax
@@ -335,7 +336,7 @@
         array_unshift($arr, 0); //add element to beginning of array
         $arr[1] = 10; //change second element of array
     ``` 
-- Arrays can be sorted using built-in functions like sort(), rsort(), asort(), arsort(), ksort(), krsort().
+- Arrays can be sorted using built-in functions like `sort()`, `rsort()`, `asort()`, `arsort()`, `ksort()`, `krsort()`.
     ```php
         $arr = array(3, 1, 4, 2);
         sort($arr); //sort array in ascending order
@@ -361,7 +362,7 @@
 - Associative arrays use named keys that you assign to them.
 - Keys can be strings or integers.
 - Values can be of any type, including other arrays or objects.
-- Associative arrays can be created using the array() function or the shorthand [] syntax (PHP 5.4+).
+- Associative arrays can be created using the `array()` function or the shorthand `[]` syntax (PHP 5.4+).
     ```php
         $arr1 = array("key1" => 1, "key2" => 2); //using array() function
         $arr2 = ["key1" => 1, "key2" => 2]; //using shorthand [] syntax
@@ -395,7 +396,7 @@
 **Best practices for multidimensional arrays in PHP code:**
 - Use meaningful names for keys and indices.
 - Keep arrays as flat as possible to avoid complexity.
-- Use built-in functions like array_map(), array_filter(), array_reduce() to manipulate arrays.
+- Use built-in functions like `array_map()`, `array_filter()`, `array_reduce()` to manipulate arrays.
 - Use foreach loops to iterate over arrays.
 
 ## Superglobals in PHP code.
@@ -423,8 +424,8 @@
 
 ```
 - Cookies are small text files that are stored on the client's computer.
-- Cookies can be set using the setcookie() function.
-- Cookies can be accessed using the $_COOKIE superglobal array.
+- Cookies can be set using the `setcookie()` function.
+- Cookies can be accessed using the `$_COOKIE` superglobal array.
 - Cookies can have an expiration time, after which they will be deleted.
 
 ## How to use sessions in PHP code.
@@ -437,9 +438,9 @@
 
 ```
 - Sessions are used to store information about the user across multiple pages.
-- Sessions are started using the session_start() function. (must be called before any output)
-- Session variables are stored in the $_SESSION superglobal array.
-- Sessions can be destroyed using the session_destroy() function.
+- Sessions are started using the `session_start()` function. (must be called before any output)
+- Session variables are stored in the `$_SESSION` superglobal array.
+- Sessions can be destroyed using the `session_destroy()` function.
 
 ## File handling in PHP code.
 
@@ -453,10 +454,10 @@
     fclose($file); //close file
 
 ```
-- Files can be opened using the fopen() function with different modes (r, w, a, r+, w+, a+).
-- Files can be read using the fread() function and written using the fwrite() function.
-- Files should be closed using the fclose() function to free up resources.
-- Other useful file functions include file_get_contents(), file_put_contents(), file_exists(), unlink(), rename(), copy(), is_readable(), is_writable().
+- Files can be opened using the `fopen()` function with different modes (r, w, a, r+, w+, a+).
+- Files can be read using the `fread()` function and written using the `fwrite()` function.
+- Files should be closed using the `fclose()` function to free up resources.
+- Other useful file functions include `file_get_contents()`, `file_put_contents()`, `file_exists()`, `unlink()`, `rename()`, `copy()`, `is_readable()`, `is_writable()`.
 - Always check if the file exists before trying to read or write to it.
 
 ## How to use JSON in PHP code.
@@ -472,8 +473,8 @@
     echo $arr["key3"];
 ```
 - JSON (JavaScript Object Notation) is a lightweight data interchange format.
-- JSON can be encoded using the json_encode() function and decoded using the json_decode() function
-- json_decode() function can return an associative array if the second parameter is set to true, otherwise it returns an object.
+- JSON can be encoded using the `json_encode()` function and decoded using the `json_decode()` function.
+- `json_decode()` function can return an associative array if the second parameter is set to true, otherwise it returns an object.
 - JSON is commonly used for data exchange between a server and a web application.
 - Always validate and sanitize JSON data before using it.
 
@@ -515,10 +516,10 @@
 - Objects are instances of classes.
 - Properties are variables that belong to a class or object.
 - Methods are functions that belong to a class or object.
-- Access modifiers (public, private, protected) control the visibility of properties and methods.
-- The constructor method (__construct) is called when an object is created.
-- The destructor method (__destruct) is called when an object is destroyed.
-- Inheritance allows a class to inherit properties and methods from another class using the extends keyword.
+- Access modifiers (`public`, `private`, `protected`) control the visibility of properties and methods.
+- The constructor method (`__construct`) is called when an object is created.
+- The destructor method (`__destruct`) is called when an object is destroyed.
+- Inheritance allows a class to inherit properties and methods from another class using the `extends` keyword.
 - Polymorphism allows methods to have the same name but behave differently based on the object that calls them (method overriding).
 
 ## Here is how to use exceptions in PHP code.
@@ -573,7 +574,7 @@ Some examples of how to prevent SQL injection in PHP code with builtin functions
     $var1 = sanitize($_POST['someInput']);  //this is how you utilize the function
 ```
 - Always validate and sanitize user input before using it in SQL queries or displaying it on a web page.
-- Use built-in functions like htmlspecialchars(), filter_var(), and mysqli_real_escape_string() to sanitize user input.
+- Use built-in functions like `htmlspecialchars()`, `filter_var()`, and `mysqli_real_escape_string()` to sanitize user input.
 - Use regular expressions to validate user input.
 - Never trust user input, always assume it is malicious. (Never trust a Klingon)
 - Use HTTPS to encrypt data transmitted between the client and server.
