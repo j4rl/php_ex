@@ -1,12 +1,6 @@
 # PHP examples
 - [Here are som code examples in PHP](code_examples.md)
-    - variables
-    - arrays
-    - loops
-    - functions
-    - classes and objects
-    - file handling
-    
+**This is a big file of code examples**
 - [This is an example of hidden input in forms](index.php)
 - [Example of a simple form to save links to a database](linx.php)
 
