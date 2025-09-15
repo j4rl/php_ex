@@ -1,7 +1,14 @@
 # PHP examples
 - [Here are som code examples in PHP](code_examples.md)
-- [This is a database example, with som error handling](linx.php)
+    - variables
+    - arrays
+    - loops
+    - functions
+    - classes and objects
+    - file handling
+    
 - [This is an example of hidden input in forms](index.php)
+- [Example of a simple form to save links to a database](linx.php)
 
 ## Here are som differences between PHP and Python:
 - PHP is a server-side scripting language, while Python is a general-purpose programming language.
