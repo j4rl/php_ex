@@ -341,12 +341,17 @@
         $arr = array(3, 1, 4, 2);
         sort($arr); //sort array in ascending order
         rsort($arr); //sort array in descending order
+        asort($arr); //sort array by values in ascending order, maintain key association
+        arsort($arr); //sort array by values in descending order, maintain key association
+        ksort($arr); //sort array by keys in ascending order
+        krsort($arr); //sort array by keys in descending order
     ```
 - Arrays can be merged using array_merge() function.
     ```php
         $arr1 = array(1, 2, 3);
         $arr2 = array(4, 5, 6);
         $arr3 = array_merge($arr1, $arr2); //merge two arrays
+        // $arr3 is now array(1, 2, 3, 4, 5, 6)
     ```
 
 ## Associative arrays in PHP code. (dictionaries in Python)
@@ -374,6 +379,31 @@
         unset($arr["key2"]); //remove key-value pair
         $arr["key1"] = 10; //change value of key
     ```
+- Associative arrays and JSON objects are very similar in PHP, and can be converted between each other using `json_encode()` and `json_decode()` functions.
+```php
+    $arr = array("key1" => 1, "key2" => 2, "key3" => 3); //associative array
+    $json = json_encode($arr); //convert array to JSON string
+    echo $json; //print JSON string
+    // The print output will be: {"key1":1,"key2":2,"key3":3}
+    $arr2 = json_decode($json, true); //convert JSON string to associative array
+    print_r($arr2); //print associative array
+    // The print output will be:
+    // Array
+    // (
+    //     [key1] => 1
+    //     [key2] => 2
+    //     [key3] => 3
+    // )
+
+```
+- Using Associative arrays with SQL answers to get the code more readable in while fetching data from a database.
+```php
+    $result = mysqli_query($conn, "SELECT id, name, email FROM users"); //execute SQL query
+    while($row = mysqli_fetch_assoc($result)){ //fetch associative array for each row
+        echo "ID: " . $row["id"] . " Name: " . $row["name"] . " Email: " . $row["email"];
+    }
+```
+
 
 ## Multidimensional arrays in PHP code. (matrices in Python)
 
