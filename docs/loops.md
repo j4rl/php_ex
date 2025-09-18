@@ -94,3 +94,8 @@ Foreach loop is used to iterate over arrays or objects and very useful for worki
         unset($value); //unset the reference to avoid accidental modification of the last element
         print_r($arr); //output: Array ( [0] => 2 [1] => 4 [2] => 6 [3] => 8 [4] => 10 )
     ```
+## Special loop control statements in PHP code.
+- Break statement is used to exit a loop or switch statement.
+- Continue statement is used to skip the current iteration of a loop and move to the next iteration.
+- Goto statement is used to jump to a specific label in the code, but its use is discouraged as it can make the code harder to read and maintain.
+- Return statement is used to exit a function and return a value to the caller.
