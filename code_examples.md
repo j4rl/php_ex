@@ -394,7 +394,6 @@
     //     [key2] => 2
     //     [key3] => 3
     // )
-
 ```
 - Using Associative arrays with SQL answers to get the code more readable in while fetching data from a database.
 ```php
@@ -403,7 +402,6 @@
         echo "ID: " . $row["id"] . " Name: " . $row["name"] . " Email: " . $row["email"];
     }
 ```
-
 
 ## Multidimensional arrays in PHP code. (matrices in Python)
 
@@ -428,6 +426,7 @@
 - Keep arrays as flat as possible to avoid complexity.
 - Use built-in functions like `array_map()`, `array_filter()`, `array_reduce()` to manipulate arrays.
 - Use foreach loops to iterate over arrays.
+- Ask yourself if you really need a multidimensional array, or if a single-dimensional array or an object would be more appropriate.
 
 ## Superglobals in PHP code.
 
