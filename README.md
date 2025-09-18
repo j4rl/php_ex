@@ -1,7 +1,16 @@
 # PHP examples
-- [Here are som code examples in PHP](code_examples.md) **(This is a really big file of code examples)**
-- [This is an example of hidden input in forms](index.php)
-- [Example of a simple form to save links to a database](linx.php)
+**PHP coding**
+- [Examples of variables, operators and logical operators in PHP code](docs/variables_op.md) 
+- [Examples of arrays in PHP code](docs/arrays.md) (indexed arrays, associative arrays, multidimensional arrays)
+- [Examples of if, switch and match statements in PHP code](docs/if_switch_match.md) (if, switch, match)
+- [Examples of loops in PHP code](docs/loops.md) (for, foreach, while, do-while)
+- [Examples of functions in PHP code](docs/functions.md) (functions and classes))
+**Other useful topics**
+- [Code tips, superglobals, cookies, sessions, file handling and preventing SQL injection in PHP code](docs/code_tips.md)
+- [Tools and useful links for PHP code](docs/tips_n_trix.md)
+**Practical examples**
+- [This is an example of hidden input in forms](ex/index.php)
+- [Example of a simple form to save links to a database](ex/linx.php)
 
 ## Here are som differences between PHP and Python:
 - PHP is a server-side scripting language, while Python is a general-purpose programming language.
