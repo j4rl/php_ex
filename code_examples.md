@@ -432,11 +432,12 @@
 
 ```php
 
-    echo $_SERVER['PHP_SELF'];
-    echo $_SERVER['SERVER_NAME'];
-    echo $_SERVER['HTTP_HOST'];
-    echo $_SERVER['HTTP_USER_AGENT'];
-    echo $_SERVER['SCRIPT_NAME'];
+    echo $_SERVER['PHP_SELF']; //current script name i.e. /index.php
+    echo $_SERVER['SERVER_ADDR']; //server IP address i.e. 127.0.0.1
+    echo $_SERVER['SERVER_NAME']; //server name i.e. localhost
+    echo $_SERVER['HTTP_HOST']; //HTTP host i.e. localhost
+    echo $_SERVER['HTTP_USER_AGENT']; //HTTP user agent i.e. Mozilla/5.0
+    echo $_SERVER['SCRIPT_NAME']; //script name i.e. /index.php
     //some other superglobals are: $_GET, $_POST, $_FILES, $_COOKIE, $_SESSION
 ```
 - Superglobals are built-in variables that are always accessible, regardless of scope.
