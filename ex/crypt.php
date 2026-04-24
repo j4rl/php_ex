@@ -1,5 +1,5 @@
 <?php
-class Crypt extends Util{
+class Crypt{
     private $password;
     /**
      * Undocumented function
