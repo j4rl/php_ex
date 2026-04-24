@@ -62,38 +62,43 @@
 - Always check if the file exists before trying to read or write to it.
 
 ## Examples of preventing SQL injection in PHP code
-Some examples of how to prevent SQL injection in PHP code with builtin functions in PHP
+The main protection against SQL injection is prepared statements with parameters.
+Do not build SQL by concatenating user input into the query string.
 
 ```php
-    $var1 = stripslashes($_POST['someInput']); //remove backslashes
-    $var2 = htmlspecialchars($_POST['someInput']); //convert special characters to HTML entities
-    $var3 = mysqli_real_escape_string($conn, $_POST['someInput']); //escape special characters
-    $var4 = filter_var($_POST['someInput'], FILTER_SANITIZE_STRING); //sanitize string
-    $var5 = filter_var($_POST['someInput'], FILTER_SANITIZE_NUMBER_INT); //sanitize integer
-    $var6 = trim($_POST['someInput']);  //remove spaces in the beginning and end of string
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+    $conn = new mysqli("localhost", "root", "", "php_ex");
+    $conn->set_charset("utf8mb4");
+
+    $email = trim($_POST["email"] ?? "");
+    $name = trim($_POST["name"] ?? "");
+
+    $stmt = $conn->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
+    $stmt->bind_param("ss", $name, $email);
+    $stmt->execute();
 ```
 - Use prepared statements and parameterized queries to prevent SQL injection.
-- Use stored procedures to encapsulate SQL code and prevent SQL injection.
-- Use ORM (Object-Relational Mapping) libraries like Eloquent or Doctrine to abstract database interactions and prevent SQL injection.
-- Always validate and sanitize user input before using it in SQL queries.
+- Validate input before using it. Example: `filter_var($email, FILTER_VALIDATE_EMAIL)` for an email address.
+- Cast or validate numeric IDs before use. Example: `filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT)`.
+- Use stored procedures or an ORM only if they also parameterize values correctly.
+- `mysqli_real_escape_string()` can reduce risk when used correctly, but prepared statements are the safer default.
 
+**Escaping output**
 
-**Sanitizing user input**
+SQL protection and HTML protection are different tasks. Use prepared statements for SQL, and escape values when showing them on a web page.
 
 ```php
-    function sanitize($input){
-        $input = stripslashes($input); //remove backslashes
-        $input = htmlspecialchars($input); //convert special characters to HTML entities
-        $input = filter_var($input, FILTER_SANITIZE_STRING); //sanitize string
-        return $input;
+    function h(?string $value): string
+    {
+        return htmlspecialchars($value ?? "", ENT_QUOTES, "UTF-8");
     }
 
-    $var1 = sanitize($_POST['someInput']);  //this is how you utilize the function
+    echo h($_POST["someInput"] ?? "");
 ```
-- Always validate and sanitize user input before using it in SQL queries or displaying it on a web page.
-- Use built-in functions like `htmlspecialchars()`, `filter_var()`, and `mysqli_real_escape_string()` to sanitize user input.
-- Use regular expressions to validate user input.
-- Never trust user input, always assume it is malicious. (Never trust a Klingon)
+- Escape all user-controlled output with `htmlspecialchars()` before rendering it in HTML.
+- Escape attribute values too, for example `href`, `title`, `value`, and `aria-label`.
+- Do not rely on `htmlspecialchars()` as SQL injection protection.
+- Avoid `FILTER_SANITIZE_STRING`; validate expected formats instead.
 - Use HTTPS to encrypt data transmitted between the client and server.
 - Keep your PHP version and libraries up to date to ensure you have the latest security patches.
-- Use a web application firewall (WAF) to protect against SQL injection and other attacks.

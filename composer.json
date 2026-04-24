@@ -1,0 +1,22 @@
+{
+    "name": "php-ex/examples",
+    "description": "Small PHP examples and learning notes.",
+    "type": "project",
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.12 || ^2.0",
+        "squizlabs/php_codesniffer": "^3.10 || ^4.0"
+    },
+    "scripts": {
+        "lint": [
+            "@php -l ex/index.php",
+            "@php -l ex/linx.php",
+            "@php -l ex/crypt.php",
+            "@php -l ex/config.php"
+        ],
+        "analyse": "phpstan analyse ex --level=5",
+        "cs": "phpcs --standard=PSR12 ex"
+    }
+}

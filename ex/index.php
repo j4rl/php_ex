@@ -8,21 +8,24 @@
 </head>
 <body>
     <?php
-        if(!isset($_POST['hela_storyn'])){
-            $story = "";
+        function h(?string $value): string
+        {
+            return htmlspecialchars($value ?? "", ENT_QUOTES, "UTF-8");
         }
 
+        $story = (string) ($_POST['hela_storyn'] ?? "");
+
         if(isset($_POST['btn'])){
-            $story = $_POST['hela_storyn']." ".$_POST['story'];
+            $story = trim($story." ".(string) ($_POST['story'] ?? ""));
         }
     ?>
     <div class="container">
         <h1>Storyn:</h1>
-        <p><?=$story?></p>
+        <p><?=h($story)?></p>
     </div>
     <form action="index.php" method="POST">
         <input type="text" name="story" placeholder="Skriv nåt...">
-        <input type="hidden" name="hela_storyn" value="<?=$story?>">
+        <input type="hidden" name="hela_storyn" value="<?=h($story)?>">
         <input type="submit" name="btn" value="Skicka">
     </form>
 </body>

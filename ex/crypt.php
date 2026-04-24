@@ -1,51 +1,69 @@
 <?php
-class Crypt{
-    private $password;
-    /**
-     * Undocumented function
-     *
-     * @param string $passkey
-     */
-    function __construct($passkey="My current passkey is 100% safe!")
+declare(strict_types=1);
+
+class Crypt
+{
+    private const METHOD = "AES-256-CBC";
+    private const IV_LENGTH = 16;
+    private const HMAC_LENGTH = 32;
+
+    private string $password;
+
+    public function __construct(string $passkey)
     {
-        $this->password=$passkey;
+        if ($passkey === "") {
+            throw new InvalidArgumentException("Passkey must not be empty.");
+        }
+
+        $this->password = $passkey;
     }
-    /**
-     * Undocumented function
-     *
-     * @param [string] $plaintext
-     * @return void
-     */
-    function enc($plaintext) {    //Encrypt
-        $method="AES-256-CBC";
-        $key = hash('sha256', $this->password, true);
-        $iv = openssl_random_pseudo_bytes(16);
-        $ciphertext = openssl_encrypt($plaintext, $method, $key, OPENSSL_RAW_DATA, $iv);
-        $hash = hash_hmac('sha256', $ciphertext, $key, true);
-        $ret= $iv . $hash . $ciphertext;
-        return base64_encode($ret);
+
+    public function enc(string $plaintext): string
+    {
+        $key = $this->key();
+        $iv = random_bytes(self::IV_LENGTH);
+        $ciphertext = openssl_encrypt($plaintext, self::METHOD, $key, OPENSSL_RAW_DATA, $iv);
+
+        if ($ciphertext === false) {
+            throw new RuntimeException("Encryption failed.");
+        }
+
+        $hash = hash_hmac("sha256", $ciphertext, $key, true);
+
+        return base64_encode($iv . $hash . $ciphertext);
     }
-    /**
-     * Undocumented function
-     *
-     * @param [string] $ivHashCiphertext
-     * @return void
-     */
-    function dec($ivHashCiphertext) {  //Decrypt
-        $ivHashCiphertext = base64_decode($ivHashCiphertext);
-        $method="AES-256-CBC";
-        $iv = substr($ivHashCiphertext, 0, 16);
-        $hash = substr($ivHashCiphertext, 16, 32);
-        $ciphertext = substr($ivHashCiphertext, 48);
-        $key = hash('sha256', $this->password, true);
-        if (hash_hmac('sha256', $ciphertext, $key, true) !== $hash) return null;
-        return openssl_decrypt($ciphertext, $method, $key, OPENSSL_RAW_DATA, $iv);
+
+    public function dec(string $ivHashCiphertext): ?string
+    {
+        $payload = base64_decode($ivHashCiphertext, true);
+
+        if ($payload === false || strlen($payload) < self::IV_LENGTH + self::HMAC_LENGTH) {
+            return null;
+        }
+
+        $iv = substr($payload, 0, self::IV_LENGTH);
+        $hash = substr($payload, self::IV_LENGTH, self::HMAC_LENGTH);
+        $ciphertext = substr($payload, self::IV_LENGTH + self::HMAC_LENGTH);
+        $key = $this->key();
+        $expectedHash = hash_hmac("sha256", $ciphertext, $key, true);
+
+        if (!hash_equals($expectedHash, $hash)) {
+            return null;
+        }
+
+        $plaintext = openssl_decrypt($ciphertext, self::METHOD, $key, OPENSSL_RAW_DATA, $iv);
+
+        return $plaintext === false ? null : $plaintext;
+    }
+
+    private function key(): string
+    {
+        return hash("sha256", $this->password, true);
     }
 }
 
-/* usage of Crypt: 
-$crp=new Crypt();
-$encStr=$crp->enc("Exempelsträng");
-$decStr=$crp->dec($encStr);
+/* Usage:
+$crp = new Crypt(getenv("CRYPT_PASSPHRASE") ?: "local-demo-passkey-change-me");
+$encStr = $crp->enc("Exempelsträng");
+$decStr = $crp->dec($encStr);
 */
-?>

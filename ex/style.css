@@ -53,6 +53,10 @@ form input[type="submit"]:hover{
     margin: 10px 0;
     font-weight: 100;
 }
+.error{
+    color: #881010;
+    font-size: .9rem;
+}
 .container i{
     font-size: .7rem;
 }
@@ -84,6 +88,27 @@ form input[type="submit"]:hover{
 }
 .line a:last-child:hover{
     color:#ffffff;
+    background: #881010;
+    border-radius: 5px;
+}
+.delete-form{
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+.trash-button{
+    color: #881010;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    padding: 5px 10px;
+}
+.trash-button:hover{
+    color: #ffffff;
     background: #881010;
     border-radius: 5px;
 }

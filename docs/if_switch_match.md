@@ -88,11 +88,12 @@
 ```php
 
     $var1 = 10;
-    match($var1){
-        10 => echo "var1 is 10",
-        20 => echo "var1 is 20",
-        default => echo "var1 is not 10 or 20"
-    }
+    $message = match($var1){
+        10 => "var1 is 10",
+        20 => "var1 is 20",
+        default => "var1 is not 10 or 20"
+    };
+    echo $message;
 
 ```
 - Match expression returns a value, so it can be assigned to a variable.
