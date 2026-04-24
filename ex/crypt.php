@@ -43,4 +43,9 @@ class Crypt{
     }
 }
 
+/* usage of Crypt: 
+$crp=new Crypt();
+$encStr=$crp->enc("Exempelsträng");
+$decStr=$crp->dec($encStr);
+*/
 ?>
